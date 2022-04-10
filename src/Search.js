@@ -1,38 +1,36 @@
 import React, {Component} from "react";
-import axios from "axios";
 import {Button, Form} from 'react-bootstrap';
 
 export default class Search extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        city: ""
+        value: ""
       };
     }
 
-    setCityName(event) {
-        event.preventDefault();
-        this.setState({city: event.target.value});
-        alert(this.state.city);
-    }
-
     handleChange(event) {
-        this.setState({ city: event.target.value });
+        this.setState({ value: event.target.value });
+    }
+    
+    submit(event) {
+        event.preventDefault();
+        this.props.refresh(this.state.value);
     }
 
     render () {
         return(
             <Form>
             <Form.Control
-                type="text"
+                className="float-left"
+                type="search"
                 placeholder="Enter city name"
                 onChange={event => this.handleChange(event)}
-                value={this.state.city}
+                value={this.state.value}
             />
-            <Button variant="primary" onClick={event => this.setCityName(event)}>Search</Button>
+            <Button variant="primary"  onClick={event => this.submit(event)}>Search</Button>
             <Button variant="warning">Current</Button>
         </Form>
         );
     }
-
 }
