@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import './WeatherApp.css';
+import '../Assets/WeatherApp.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Card} from 'react-bootstrap';
-import Search from './Assets/Search';
-import Navigation from './Assets/Navigation';
+import Search from './Search';
+import Navigation from './Navigation';
 
 export default function WeatherApp(){
     return(
